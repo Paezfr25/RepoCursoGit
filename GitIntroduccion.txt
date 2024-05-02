@@ -18,6 +18,9 @@ GitHub crea herramientas que utilizan Git.
 GitHub es el mayor servidor de código fuente del mundo y es propiedad de Microsoft desde 2018.
 En este tutorial, nos centraremos en el uso de Git con GitHub.
 
+configurar un usuario git:
+git config --global user.name "w3schools-test"
+git config --global user.email "test@w3schools.com"
 
 Creando una carpeta Git
 Ahora, creemos una nueva carpeta para nuestro proyecto:
@@ -56,11 +59,118 @@ Luego guárdelo o muévalo a la carpeta que acaba de crear.
 Un README.md archivo que describe el repositorio (recomendado para todos los repositorios):
 
 
-COMANDOS 
+COMANDOS MAS IMPORTANTES!!! 
+git log  Para ver el historial de confirmaciones de un repositorio
 mkdir  ---- crea una nueva carpeta (esto es en terminal)
 cd  --- cambia al directorio de tabajo actual
 git init --- inicializa git en la carpeta selecionada se puede hacer mediante git bash sobre una carpeta 
-ls --- enumerará los archivos en el directorio. Podemos ver que index.htmlestá ahí.
-git status ---- vemos si es parte de nuestro repositorio verifica.
-git add --- agrega archivos al commit osea los sube al repositorio 
-git add all-- o git add a- esto agregara todos nuestros archivos al commit 
+ls ---  enumerará los archivos en el directorio. Podemos ver que index.htmlestá ahí.
+git status ----  vemos si es parte de nuestro repositorio verifica.
+git status --short  Esto nos permite ver los cambios de una forma mas compacta 
+git add --- agrega archivos al commit en nuestro repositorio local se guardan los cambios 
+git add --all o git add  -A esto agregara todos nuestros archivos al commit 
+git commit -m "ejemploMensaje"  -- esto agraga los archivos al comit dejando un mensaje 
+
+
+Ayuda de Git: 
+Si tiene problemas para recordar comandos u opciones de comandos, puede usar Git help.
+Hay un par de formas diferentes de utilizar el helpcomando en la línea de comando:
+git command -help- Ver todas las opciones disponibles para el comando específico
+git help --all- Ver todos los comandos posibles
+ Repasemos los diferentes comandos.
+
+GIT BRANCH 
+En Git, a branches una versión nueva/separada del repositorio principal.
+Digamos que tiene un proyecto grande y necesita actualizar el diseño.
+Las ramas le permiten trabajar en diferentes partes de un proyecto sin afectar la rama principal.
+Cuando se completa el trabajo, se puede fusionar una rama con el proyecto principal.
+Incluso puedes cambiar entre ramas y trabajar en diferentes proyectos sin que interfieran entre sí.
+¡La ramificación en Git es muy ligera y rápida!
+Estamos trabajando en nuestro repositorio local y no queremos perturbar ni arruinar el proyecto principal.
+
+Entonces creamos un nuevo branch:
+
+Ejemplo
+git branch hello-world-images
+Ahora creamos uno nuevo branchllamado " hello-world-images"
+
+Confirmemos que hemos creado un nuevo branch:
+
+Ejemplo
+git branch
+  hello-world-images
+* master
+Podemos ver la nueva rama con el nombre "hello-world-images", pero al *lado masterespecifica que actualmente estamos en esa branch.
+
+checkoutes el comando utilizado para verificar un branch. Pasándonos del actual branch, al especificado al final del comando:
+
+Ejemplo
+git checkout hello-world-images
+Switched to branch 'hello-world-images'
+Ahora hemos movido nuestro espacio de trabajo actual de la rama master a la nueva branch
+
+Abre tu editor favorito y haz algunos cambios.
+
+CAMBIAR A LA RAMA MAESTRA 
+git checkout master
+Switched to branch 'master'
+
+
+Rama de Emergencia
+Ahora imagina que aún no hemos terminado con hello-world-images, pero necesitamos corregir un error en master.
+
+No quiero meterme con master directamente, y no quiero meterme con hello-world-images, ya que aún no está terminado.
+
+Entonces creamos una nueva sucursal para atender la emergencia:
+
+Ejemplo
+git checkout -b emergency-fix
+Switched to a new branch 'emergency-fix'
+Ahora hemos creado una nueva rama desde master y la hemos cambiado. Podemos corregir el error de forma segura sin molestar a las otras ramas.
+
+Fusionar ramas
+Tenemos la solución de emergencia lista, así que fusionemos las ramas maestra y de solución de emergencia.
+
+Primero, necesitamos cambiar a la rama master:
+
+Ejemplo
+git checkout master
+Switched to branch 'master'
+Ahora fusionamos la rama actual (maestra) con el arreglo de emergencia:
+
+Ejemplo
+git merge emergency-fix
+Updating 09f4acd..dfa79db
+Fast-forward
+ index.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Dado que la rama de reparación de emergencia vino directamente de master y no se realizaron otros cambios en master mientras estábamos trabajando, Git ve esto como una continuación de master. Por lo tanto, puede "Avanzar rápidamente", simplemente apuntando tanto al maestro como a la solución de emergencia al mismo compromiso.
+
+Como ahora el arreglo maestro y de emergencia son esencialmente iguales, podemos eliminar el arreglo de emergencia, ya que ya no es necesario:
+
+Ejemplo
+git branch -d emergency-fix
+Deleted branch emergency-fix (was dfa79db).
+Fusionar conflicto
+Ahora podemos pasar a imágenes de hola mundo y seguir trabajando. Agrega otro archivo de imagen (img_hello_git.jpg) y cambia index.html, para que lo muestre:
+
+Ejemplo
+git checkout hello-world-images
+Switched to branch 'hello-world-images'
+Ahora hemos terminado con nuestro trabajo aquí y podemos preparar y comprometernos para esta rama:
+
+Ejemplo
+git add --all
+git commit -m "added new image"
+[hello-world-images 1f1584e] added new image
+ 2 files changed, 1 insertion(+)
+ create mode 100644 img_hello_git.jpg
+Vemos que index.html ha sido cambiado en ambas ramas. Ahora estamos listos para fusionar imágenes de hola mundo en master. Pero ¿qué pasará con los cambios que hicimos recientemente en master?
+
+Ejemplo
+git checkout master
+git merge hello-world-images
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+La fusión falló porque hay un conflicto entre las versiones de index.html. Comprobemos el estado:
