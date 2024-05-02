@@ -1,0 +1,66 @@
+Que es Git:
+-------------
+Git es un sistema de control de versiones.
+Git te ayuda a realizar un seguimiento de los cambios de código.
+Git se utiliza para colaborar en el código.
+---------------
+¿Qué hace Git?
+Gestionar proyectos con Repositorios
+Clonar un proyecto para trabajar en una copia local
+Controle y rastree los cambios con Staging y Committing
+Ramificar y fusionar para permitir trabajar en diferentes partes y versiones de un proyecto
+Extraiga la última versión del proyecto a una copia local
+Enviar actualizaciones locales al proyecto principal
+--------------
+¿Qué es GitHub?
+Git no es lo mismo que GitHub.
+GitHub crea herramientas que utilizan Git.
+GitHub es el mayor servidor de código fuente del mundo y es propiedad de Microsoft desde 2018.
+En este tutorial, nos centraremos en el uso de Git con GitHub.
+
+
+Creando una carpeta Git
+Ahora, creemos una nueva carpeta para nuestro proyecto:
+--------------
+Ejemplo
+mkdir myproject
+cd myproject
+---------------
+mkdir crea un nuevo directorio .
+cd Cambia el directorio de trabajo actual .
+---------------
+Ahora que estamos en el directorio correcto. 
+¡Podemos comenzar inicializando Git!
+
+--------------
+Nota: Si ya tiene una carpeta/directorio que le gustaría usar para Git:
+Navegue hasta él en la línea de comando o ábralo en su explorador de archivos,
+ haga clic derecho y seleccione "Git Bash aquí".
+
+
+----------
+Inicializar Git:
+Una vez que haya navegado a la carpeta correcta,
+ puede inicializar Git en esa carpeta:
+ git init 
+Initialized empty Git repository in /Users/user/myproject/.git/
+¡Acabas de crear tu primer repositorio Git!
+Nota: Git ahora sabe que debe vigilar la carpeta en la que lo inició.
+Git crea una carpeta oculta para realizar un seguimiento de los cambios.
+-------------
+Git agregando nuevos archivos:
+Acabas de crear tu primer repositorio Git local. Pero está vacío.
+Entonces, agreguemos algunos archivos o creemos un archivo nuevo usando su editor de texto favorito. 
+Luego guárdelo o muévalo a la carpeta que acaba de crear.
+!IMPORTANTE 
+Un README.md archivo que describe el repositorio (recomendado para todos los repositorios):
+
+
+COMANDOS 
+mkdir  ---- crea una nueva carpeta (esto es en terminal)
+cd  --- cambia al directorio de tabajo actual
+git init --- inicializa git en la carpeta selecionada se puede hacer mediante git bash sobre una carpeta 
+ls --- enumerará los archivos en el directorio. Podemos ver que index.htmlestá ahí.
+git status ---- vemos si es parte de nuestro repositorio verifica.
+git add --- agrega archivos al commit osea los sube al repositorio 
+git add all-- o git add a- esto agregara todos nuestros archivos al commit 
