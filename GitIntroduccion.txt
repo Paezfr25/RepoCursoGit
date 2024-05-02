@@ -72,6 +72,15 @@ git add --all o git add  -A esto agregara todos nuestros archivos al commit
 git commit -m "ejemploMensaje"  -- esto agraga los archivos al comit dejando un mensaje 
 
 
+CONECTAR CON REPOSITORIO!! 
+git remote -v --- comprueba la coneccion si esta en la ruta indicada con el repositorio creado en git 
+git remote add origin ---- agrega la ruta por la cual se vincula el repositorio local con el remoto 
+git remote rename origin old-origin --- cambiar el nombre del origen remoto se usa en conjunto con el siguiente comando 
+git remote add origin <url_del_repositorio_remoto> en este pondriamos el nnuevo repo 
+git remote remove origin ---- elimina la coneccion remota  
+
+
+
 Ayuda de Git: 
 Si tiene problemas para recordar comandos u opciones de comandos, puede usar Git help.
 Hay un par de formas diferentes de utilizar el helpcomando en la línea de comando:
@@ -174,3 +183,4 @@ Auto-merging index.html
 CONFLICT (content): Merge conflict in index.html
 Automatic merge failed; fix conflicts and then commit the result.
 La fusión falló porque hay un conflicto entre las versiones de index.html. Comprobemos el estado:
+
